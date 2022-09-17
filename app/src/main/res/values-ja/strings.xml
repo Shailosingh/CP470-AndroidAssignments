@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">課題1</string>
-    <string name="hello_world">こんにちは!</string>
+    <string name="hello_world">こんにちは</string>
     <string name="button_text">ボタンです</string>
 </resources>
