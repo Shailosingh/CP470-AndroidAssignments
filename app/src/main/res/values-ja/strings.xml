@@ -3,4 +3,10 @@
     <string name="app_name">課題1</string>
     <string name="hello_world">こんにちは!</string>
     <string name="button_text">ボタンです</string>
+    <string name="login">ログイン</string>
+    <string name="login_hint">ログインの名前</string>
+    <string name="password">パスワード</string>
+    <string name="radiobutton_text">ラジオボタン</string>
+    <string name="checkbox_text">チェックボックス</string>
+    <string name="switch_text">これは何をしますか</string>
 </resources>
