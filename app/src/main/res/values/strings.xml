@@ -8,4 +8,10 @@
     <string name="radiobutton_text">RadioButton</string>
     <string name="checkbox_text">CheckBox</string>
     <string name="switch_text">What does this do?</string>
+    <string name="toast_switch_on">Switch is ON</string>
+    <string name="toast_switch_off">Switch is OFF</string>
+    <string name="dialog_message">Do you wish to finish the activity?</string>
+    <string name="dialog_title">Finish!</string>
+    <string name="ok">Yes</string>
+    <string name="cancel">No</string>
 </resources>

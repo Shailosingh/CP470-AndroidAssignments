@@ -9,4 +9,10 @@
     <string name="radiobutton_text">ラジオボタン</string>
     <string name="checkbox_text">チェックボックス</string>
     <string name="switch_text">これは何をしますか</string>
+    <string name="toast_switch_on">スイッチはオンです</string>
+    <string name="toast_switch_off">スイッチはオンではありませ</string>
+    <string name="dialog_message">活動を終えますか</string>
+    <string name="dialog_title">終える</string>
+    <string name="ok">はい</string>
+    <string name="cancel">いいえ</string>
 </resources>
