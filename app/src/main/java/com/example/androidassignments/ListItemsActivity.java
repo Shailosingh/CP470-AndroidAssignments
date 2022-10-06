@@ -30,9 +30,9 @@ public class ListItemsActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        Log.i(ACTIVITY_NAME, "In onCreate()");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_items);
+        Log.i(ACTIVITY_NAME, "In onCreate()");
 
         //Setup the view items
         CamButton = (ImageButton)findViewById(R.id.CamButton);

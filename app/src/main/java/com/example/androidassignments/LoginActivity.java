@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -80,14 +84,34 @@ public class LoginActivity extends AppCompatActivity
         super.onDestroy();
     }
 
+    private static boolean IsEmailValid(String email)
+    {
+        //Regular expression for emails
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+
+        //Turn regular expression into pattern which works with any case letters
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+
+        //Checks if email matches pattern
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
     //Handlers-------------------------------------------------------------------------------------
     public void LoginButton_Handler(android.view.View v)
     {
         //Retrieves the editor
         SharedPreferences.Editor editor = preferences.edit();
 
+        //Ensures email is valid
+        String email = LoginText.getText().toString();
+        if(!IsEmailValid(email))
+        {
+            return;
+        }
+
         //Sets the new email
-        editor.putString(EMAIL_KEY, LoginText.getText().toString());
+        editor.putString(EMAIL_KEY, email);
         editor.apply();
 
         //Ensure the password is not empty
@@ -96,7 +120,7 @@ public class LoginActivity extends AppCompatActivity
             return;
         }
 
-            //Travel to the main activity
+        //Travel to the main activity
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
