@@ -93,4 +93,11 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(MainActivity.this, ListItemsActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
+
+    public void StartButton_OnClick(android.view.View v)
+    {
+        Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+        Intent intent = new Intent(MainActivity.this, ChatWindow.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
 }

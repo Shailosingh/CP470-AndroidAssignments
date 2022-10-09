@@ -13,25 +13,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAssignments"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".LoginActivity"/>
+
+        <activity
+            android:name=".ChatWindow"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ListItemsActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="true">
-
         </activity>
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".LoginActivity"
             android:exported="true">
-
         </activity>
     </application>
 

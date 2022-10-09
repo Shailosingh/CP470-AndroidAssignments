@@ -15,4 +15,6 @@
     <string name="dialog_title">終える</string>
     <string name="ok">はい</string>
     <string name="cancel">いいえ</string>
+    <string name="start_chat">チャット始めます</string>
+    <string name="send">送信</string>
 </resources>
