@@ -84,8 +84,14 @@ public class LoginActivity extends AppCompatActivity
         super.onDestroy();
     }
 
-    private static boolean IsEmailValid(String email)
+    public static boolean IsEmailValid(String email)
     {
+        //Null check
+        if(email == null)
+        {
+            return false;
+        }
+
         //Regular expression for emails
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
 
