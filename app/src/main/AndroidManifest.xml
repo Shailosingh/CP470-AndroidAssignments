@@ -14,9 +14,12 @@
         android:theme="@style/Theme.AndroidAssignments"
         tools:targetApi="31">
         <activity
+            android:name=".CustomLayout"
+            android:exported="false" />
+        <activity
             android:name=".TestToolbar"
             android:exported="false"
-            android:label="@string/title_activity_test_toolbar"
+            android:label="@string/test_toolbar"
             android:theme="@style/Theme.AndroidAssignments.NoActionBar" />
 
         <meta-data
@@ -30,7 +33,7 @@
         <activity
             android:name=".ListItemsActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -43,7 +46,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:parentActivityName=".LoginActivity"></activity>
+            android:parentActivityName=".LoginActivity" />
     </application>
 
 </manifest>

@@ -3,19 +3,24 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_one"
         android:title="@string/one"
-        android:icon="@drawable/Dragon"
+        android:icon="@drawable/dragon"
         android:orderInCategory="1"
         app:showAsAction="always" />
 
     <item android:id="@+id/action_two"
         android:title="@string/two"
-        android:icon="@drawable/Horse"
+        android:icon="@drawable/horse"
         android:orderInCategory="2"
         app:showAsAction="always" />
 
     <item android:id="@+id/action_three"
         android:title="@string/three"
-        android:icon="@drawable/Tiger"
+        android:icon="@drawable/tiger"
         android:orderInCategory="3"
         app:showAsAction="always" />
+
+    <item android:id="@+id/action_about"
+        android:title="@string/about"
+        android:orderInCategory="4"
+        app:showAsAction="never"/>
 </menu>

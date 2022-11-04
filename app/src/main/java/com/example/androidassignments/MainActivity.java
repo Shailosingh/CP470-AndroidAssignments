@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity
     //Handlers-------------------------------------------------------------------------------------
     public void MainButton_Handler(android.view.View v)
     {
+        Log.i(ACTIVITY_NAME, "User clicked MainButton");
         Intent intent = new Intent(MainActivity.this, ListItemsActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
@@ -98,6 +99,13 @@ public class MainActivity extends AppCompatActivity
     {
         Log.i(ACTIVITY_NAME, "User clicked Start Chat");
         Intent intent = new Intent(MainActivity.this, ChatWindow.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    public void StartTestToolbar_OnClick(android.view.View v)
+    {
+        Log.i(ACTIVITY_NAME, "User clicked Start Test Toolbar");
+        Intent intent = new Intent(MainActivity.this, TestToolbar.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
 }
