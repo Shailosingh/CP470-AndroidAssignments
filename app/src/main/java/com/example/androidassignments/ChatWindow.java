@@ -2,8 +2,13 @@ package com.example.androidassignments;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +28,11 @@ public class ChatWindow extends AppCompatActivity
     Button SendButton;
 
     //Datafields
+    private String ACTIVITY_NAME = "ChatWindow";
     private ArrayList<String> TextMessageList;
-    private ChatAdapter messageAdapter;
+    private ChatAdapter MessageAdapter;
+    private static ChatDatabaseHelper DatabaseHelper;
+    private static SQLiteDatabase ReadableDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,8 +49,36 @@ public class ChatWindow extends AppCompatActivity
         TextMessageList = new ArrayList<>();
 
         //In this case, “this” is the ChatWindow, which is-A Context object
-        messageAdapter = new ChatAdapter(this);
-        ChatView.setAdapter (messageAdapter);
+        MessageAdapter = new ChatAdapter(this);
+        ChatView.setAdapter (MessageAdapter);
+
+        //Open up database
+        DatabaseHelper = new ChatDatabaseHelper(this);
+        ReadableDatabase = DatabaseHelper.getReadableDatabase();
+
+        //Retrieve all messages
+        Cursor cursor = ReadableDatabase.rawQuery(DatabaseHelper.GET_ALL_MESSAGES_COMMAND, null);
+        cursor.moveToFirst();
+        int columnIndex;
+        while(!cursor.isAfterLast())
+        {
+            columnIndex = cursor.getColumnIndex(DatabaseHelper.KEY_MESSAGE);
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(columnIndex));
+            TextMessageList.add(cursor.getString(columnIndex));
+            cursor.moveToNext();
+        }
+        Log.i(ACTIVITY_NAME, "Cursor’s  column count =" + cursor.getColumnCount() );
+
+        for (int i = 0; i <cursor.getColumnCount();i++)
+        {
+            Log.i(ACTIVITY_NAME, "Column Name: "+ cursor.getColumnName(i));
+        }
+    }
+
+    public void onDestroy()
+    {
+        super.onDestroy();
+        ReadableDatabase.close();
     }
 
     //Handlers-------------------------------------------------------------------------------------
@@ -51,11 +87,16 @@ public class ChatWindow extends AppCompatActivity
         //Adds  text message to list
         TextMessageList.add(TextMessageBox.getText().toString());
 
+        //Put text in database
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.KEY_MESSAGE, TextMessageBox.getText().toString());
+        ReadableDatabase.insert(ChatDatabaseHelper.MESSAGE_TABLE_NAME, null, values);
+
         //Resets the text message box
         TextMessageBox.setText("");
 
         //Notify the adapter that there are new messages
-        messageAdapter.notifyDataSetChanged();
+        MessageAdapter.notifyDataSetChanged();
     }
 
     //Inner Class----------------------------------------------------------------------------------
