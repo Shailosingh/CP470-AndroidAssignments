@@ -24,4 +24,8 @@
     <string name="about_toast">Version 1.0, by Shailendra Singh</string>
     <string name="selected_item_1">You selected item 1</string>
     <string name="go_back">Do you want to go back?</string>
+    <string name="weather">Weather</string>
+    <string name="current_temperature">Current Temperature</string>
+    <string name="minimum_temperature">Minimum Temperature</string>
+    <string name="maximum_temperature">Maximum Temperature</string>
 </resources>

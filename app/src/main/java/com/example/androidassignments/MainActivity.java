@@ -108,4 +108,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(MainActivity.this, TestToolbar.class);
         startActivityForResult(intent, REQUEST_CODE);
     }
+
+    public void WeatherButton_OnClick(android.view.View v)
+    {
+        Intent intent = new Intent(MainActivity.this, WeatherForecast.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
 }

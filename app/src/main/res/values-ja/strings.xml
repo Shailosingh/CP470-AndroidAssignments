@@ -25,4 +25,8 @@
     <string name="about_toast">バージョン1.0, Shailendra Singhの作</string>
     <string name="selected_item_1">あなたは選択１を選びました</string>
     <string name="go_back">活動を帰りますか</string>
+    <string name="weather">天気</string>
+    <string name="current_temperature">現在の気温</string>
+    <string name="minimum_temperature">最低気温</string>
+    <string name="maximum_temperature">最高気温</string>
 </resources>
